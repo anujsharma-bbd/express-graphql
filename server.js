@@ -13,7 +13,7 @@ var courseFuncAll = () => {
 let changeTitleFunc = (args)=>{
    let course = allData.find(x=> x.id === args.id);
    if(!course) throw new Error('No course found');
-
+ 
    course.title = args.title;
    course.description = `this is ${ course.title } absolutly`;
    return course;
