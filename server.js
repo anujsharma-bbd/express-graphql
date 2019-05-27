@@ -1,13 +1,13 @@
-var { buildSchema } = require('graphql');
-var express_graphql = require('express-graphql');
-var express = require('express');
+let { buildSchema } = require('graphql');
+let express_graphql = require('express-graphql');
+let express = require('express');
 
-var app = express();
+let app = express();
 
-var courseFunc = (args) => {
+let courseFunc = (args) => {
    return allData.find(x => x.id === args.id);
 }
-var courseFuncAll = () => {
+let courseFuncAll = () => {
    return allData;
 }
 let changeTitleFunc = (args)=>{
@@ -18,13 +18,13 @@ let changeTitleFunc = (args)=>{
    course.description = `this is ${ course.title } absolutly`;
    return course;
 }
-var root = {
+let root = {
    course: courseFunc,
    courses: courseFuncAll,
    changeTitle: changeTitleFunc
 };
 
-var schema = buildSchema(`
+let schema = buildSchema(`
          type Query {
             course(id: Int!) : Course,
             courses: [Course]
